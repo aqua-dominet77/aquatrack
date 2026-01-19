@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AquaTrack — Professional Swimming Performance Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Animated water particles background -->
+    <canvas id="particles"></canvas>
+
+    <header class="navbar">
+      <div class="brand">
+        <div class="logo-3d">
+          <i class="fas fa-swimmer"></i>
+        </div>
+        <span class="title">AquaTrack</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+        <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#features" class="nav-link"><i class="fas fa-star"></i> Features</a>
+        <a href="#ai-coach" class="nav-link"><i class="fas fa-robot"></i> AI Coach</a>
+        <a href="#training" class="nav-link"><i class="fas fa-dumbbell"></i> Training</a>
+        <a href="#progress" class="nav-link"><i class="fas fa-chart-line"></i> Progress</a>
+        <a href="#community" class="nav-link"><i class="fas fa-users"></i> Community</a>
+        <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+      <div class="nav-actions" id="navActions"></div>
+    </header>
+
+    <main>
+      <!-- HOME PAGE -->
+      <section id="home" class="hero-3d active">
+        <div class="hero-content">
+          <div class="hero-badge">Performance · Precision · Progress</div>
+          <h1 class="hero-title">
+            Elevate Your <span class="neon-text">Swimming</span><br/>Performance to New Heights
+          </h1>
+          <p class="hero-subtitle">
+            AI-powered analytics, personalized coaching, and real-time tracking for swimmers at every level.
+          </p>
+          <div class="hero-cta">
+            <button class="btn-neon btn-large" id="get-started">
+              <i class="fas fa-rocket"></i> Start Free Trial
+            </button>
+            <button class="btn-outline btn-large">
+              <i class="fas fa-play-circle"></i> Watch Demo
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-number">50K+</div>
+              <div class="stat-label">Active Swimmers</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2M+</div>
+              <div class="stat-label">Sessions Tracked</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+
+          <!-- Quick Navigation Cards -->
+          <div class="quick-nav-section">
+            <h3>Explore AquaTrack</h3>
+            <div class="quick-nav-grid">
+              <div class="quick-nav-card" data-page="about">
+                <i class="fas fa-info-circle"></i>
+                <h4>About</h4>
+                <p>Learn our mission</p>
+              </div>
+              <div class="quick-nav-card" data-page="features">
+                <i class="fas fa-star"></i>
+                <h4>Features</h4>
+                <p>Premium tools</p>
+              </div>
+              <div class="quick-nav-card" data-page="ai-coach">
+                <i class="fas fa-robot"></i>
+                <h4>AI Coach</h4>
+                <p>Smart guidance</p>
+              </div>
+              <div class="quick-nav-card" data-page="training">
+                <i class="fas fa-dumbbell"></i>
+                <h4>Training</h4>
+                <p>Workout plans</p>
+              </div>
+              <div class="quick-nav-card" data-page="progress">
+                <i class="fas fa-chart-line"></i>
+                <h4>Progress</h4>
+                <p>Track your stats</p>
+              </div>
+              <div class="quick-nav-card" data-page="community">
+                <i class="fas fa-users"></i>
+                <h4>Community</h4>
+                <p>Join swimmers</p>
+              </div>
+              <div class="quick-nav-card" data-page="contact">
+                <i class="fas fa-envelope"></i>
+                <h4>Contact</h4>
+                <p>Get in touch</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card card-1">
+            <i class="fas fa-stopwatch"></i>
+            <span>Real-time Tracking</span>
+          </div>
+          <div class="floating-card card-2">
+            <i class="fas fa-brain"></i>
+            <span>AI Analysis</span>
+          </div>
+          <div class="floating-card card-3">
+            <i class="fas fa-trophy"></i>
+            <span>Goal Achievement</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT PAGE -->
+      <section id="about" class="section-3d">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">About <span class="neon-text">AquaTrack</span></h2>
+            <p class="section-subtitle">Redefining swimming performance tracking with cutting-edge technology</p>
+          </div>
+          <div class="about-grid">
+            <div class="about-content">
+              <h3>Our Mission</h3>
+              <p>AquaTrack was built by swimmers, for swimmers. We combine sports science, AI technology, and intuitive design to help you unlock your full potential in the pool.</p>
+              <h3>Why Choose AquaTrack?</h3>
+              <ul class="check-list">
+                <li><i class="fas fa-check-circle"></i> AI-powered performance analysis</li>
+                <li><i class="fas fa-check-circle"></i> Personalized training programs</li>
+                <li><i class="fas fa-check-circle"></i> Real-time stroke technique feedback</li>
+                <li><i class="fas fa-check-circle"></i> Community support and challenges</li>
+                <li><i class="fas fa-check-circle"></i> Cross-platform sync (mobile & desktop)</li>
+              </ul>
+            </div>
+            <div class="about-visual">
+              <div class="metric-box">
+                <i class="fas fa-award"></i>
+                <h4>Award-Winning Platform</h4>
+                <p>Recognized by top swimming federations worldwide</p>
+              </div>
+              <div class="metric-box">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Trusted by Professionals</h4>
+                <p>Used by Olympic athletes and coaches globally</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES PAGE -->
+      <section id="features" class="section-3d features-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Premium <span class="neon-text">Features</span></h2>
+            <p class="section-subtitle">Everything you need to dominate in the water</p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card-3d">
+              <div class="feature-icon"><i class="fas fa-clock"></i></div>
+              <h3>Time Tracking</h3>
+              <p>Log splits, distances, and intervals with millisecond precision.</p>
+            </div>
+            <div class="feature-card-3d">
+              <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+              <h3>Performance Analytics</h3>
+              <p>Visualize trends, pace curves, and stroke efficiency over time.</p>
+            </div>
+            <div class="feature-card-3d">
+              <div class="feature-icon"><i class="fas fa-video"></i></div>
+              <h3>Technique Videos</h3>
+              <p>Watch HD tutorials for every stroke and drill.</p>
+            </div>
+            <div class="feature-card-3d">
+              <div class="feature-icon"><i class="fas fa-robot"></i></div>
+              <h3>AI Coach</h3>
+              <p>Get personalized feedback and training recommendations.</p>
+            </div>
+            <div class="feature-card-3d">
+              <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+              <h3>Mobile Sync</h3>
+              <p>Access your data anywhere, anytime on any device.</p>
+            </div>
+            <div class="feature-card-3d">
+              <div class="feature-icon"><i class="fas fa-medal"></i></div>
+              <h3>Achievements</h3>
+              <p>Unlock badges and celebrate milestones.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI COACH PAGE -->
+      <section id="ai-coach" class="section-3d ai-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">AI <span class="neon-text">Coach</span></h2>
+            <p class="section-subtitle">Your personal swimming intelligence assistant</p>
+          </div>
+          <div class="ai-coach-container">
+            <div class="chatbot-panel">
+              <div class="chatbot-header">
+                <i class="fas fa-robot"></i>
+                <span>AquaTrack AI Coach</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="chatbot-messages" id="chatMessages">
+                <div class="message bot-message">
+                  <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                  <div class="message-bubble">
+                    Hello! I'm your AI swimming coach. Share your recent times or ask me anything about improving your performance.
+                  </div>
+                </div>
+              </div>
+              <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Ask about training, technique, or log your time..." />
+                <button id="chatSend" class="btn-neon"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+            <div class="ai-insights">
+              <h3>Recent Insights</h3>
+              <div class="insight-card">
+                <i class="fas fa-lightbulb"></i>
+                <p><strong>Freestyle Improvement:</strong> Your last 100m time shows 2% improvement. Focus on breathing rhythm.</p>
+              </div>
+              <div class="insight-card">
+                <i class="fas fa-chart-line"></i>
+                <p><strong>Weekly Goal:</strong> You're 85% toward your 5km weekly distance target.</p>
+              </div>
+              <div class="insight-card">
+                <i class="fas fa-fire"></i>
+                <p><strong>Streak Alert:</strong> 7-day training streak! Keep it up.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRAINING PROGRAMS PAGE -->
+      <section id="training" class="section-3d training-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Training <span class="neon-text">Programs</span></h2>
+            <p class="section-subtitle">Structured workouts designed by professional coaches</p>
+          </div>
+          <div class="training-grid">
+            <!-- Beginner Plans -->
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Beginner Starter</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 30 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (8 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Freestyle</strong></li>
+                    <li>4 × 25m <strong>Freestyle</strong> (breathing drills)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (17 min)</h4>
+                  <ul>
+                    <li>8 × 50m <strong>Freestyle</strong> @ moderate, 45s rest</li>
+                    <li>4 × 25m <strong>Backstroke</strong> (easy pace)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Freestyle</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Mixed Strokes Intro</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 35 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (10 min)</h4>
+                  <ul>
+                    <li>100m <strong>Freestyle</strong></li>
+                    <li>100m <strong>Backstroke</strong></li>
+                    <li>100m <strong>Breaststroke</strong></li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (20 min)</h4>
+                  <ul>
+                    <li>6 × 50m <strong>Freestyle</strong>, 30s rest</li>
+                    <li>4 × 50m <strong>Backstroke</strong>, 30s rest</li>
+                    <li>4 × 25m <strong>Breaststroke</strong>, 40s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy choice stroke</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <!-- Intermediate Plans -->
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Endurance Builder</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 45 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (12 min)</h4>
+                  <ul>
+                    <li>400m continuous <strong>Freestyle</strong></li>
+                    <li>8 × 25m drills (catch-up, fingertip)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (28 min)</h4>
+                  <ul>
+                    <li>10 × 100m <strong>Freestyle</strong> @ steady, 25s rest</li>
+                    <li>200m <strong>Backstroke</strong> (moderate)</li>
+                    <li>4 × 50m <strong>Breaststroke</strong>, 30s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy mixed strokes</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Speed Development</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 50 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (15 min)</h4>
+                  <ul>
+                    <li>300m easy <strong>Freestyle</strong></li>
+                    <li>8 × 50m build speed (easy → fast)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (30 min)</h4>
+                  <ul>
+                    <li>8 × 50m <strong>Freestyle</strong> sprint, 45s rest</li>
+                    <li>4 × 100m <strong>Freestyle</strong> @ race pace, 30s rest</li>
+                    <li>6 × 25m <strong>Butterfly</strong> sprint, 30s rest</li>
+                    <li>200m <strong>Backstroke</strong> recovery</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Breaststroke</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>IM (Individual Medley)</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 55 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (15 min)</h4>
+                  <ul>
+                    <li>200m <strong>Freestyle</strong></li>
+                    <li>100m <strong>Backstroke</strong></li>
+                    <li>100m <strong>Breaststroke</strong></li>
+                    <li>100m <strong>Butterfly</strong></li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (35 min)</h4>
+                  <ul>
+                    <li>4 × 100m IM (Fly/Back/Breast/Free), 60s rest</li>
+                    <li>4 × 75m (25 Back + 25 Breast + 25 Free), 45s rest</li>
+                    <li>8 × 50m choice stroke @ 85% effort, 30s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Freestyle</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <!-- Advanced Plans -->
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Elite Distance</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 75 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (20 min)</h4>
+                  <ul>
+                    <li>600m continuous <strong>Freestyle</strong></li>
+                    <li>12 × 50m technique drills (various strokes)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (50 min)</h4>
+                  <ul>
+                    <li>5 × 200m <strong>Freestyle</strong> @ threshold, 40s rest</li>
+                    <li>10 × 100m IM order, 30s rest</li>
+                    <li>400m <strong>Backstroke</strong> (negative split)</li>
+                    <li>8 × 50m <strong>Butterfly</strong> sprint, 45s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Breaststroke</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Butterfly Focus</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 60 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (15 min)</h4>
+                  <ul>
+                    <li>400m <strong>Freestyle</strong> (easy)</li>
+                    <li>8 × 25m <strong>Butterfly</strong> drills (dolphin kick)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (40 min)</h4>
+                  <ul>
+                    <li>10 × 50m <strong>Butterfly</strong> @ 80% effort, 40s rest</li>
+                    <li>6 × 25m <strong>Butterfly</strong> sprint, 30s rest</li>
+                    <li>200m <strong>Freestyle</strong> recovery</li>
+                    <li>4 × 100m (50 Fly + 50 Free), 45s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Backstroke</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Breaststroke Master</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 65 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (15 min)</h4>
+                  <ul>
+                    <li>300m <strong>Freestyle</strong></li>
+                    <li>200m <strong>Breaststroke</strong> (technique focus)</li>
+                    <li>8 × 25m kick drills</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (45 min)</h4>
+                  <ul>
+                    <li>12 × 75m <strong>Breaststroke</strong> @ steady, 35s rest</li>
+                    <li>8 × 50m <strong>Breaststroke</strong> pull (no kick), 30s rest</li>
+                    <li>6 × 25m <strong>Breaststroke</strong> sprint, 25s rest</li>
+                    <li>200m <strong>Freestyle</strong> recovery</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Freestyle</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Backstroke Specialist</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 55 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (12 min)</h4>
+                  <ul>
+                    <li>300m <strong>Freestyle</strong></li>
+                    <li>6 × 50m <strong>Backstroke</strong> (build speed)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (38 min)</h4>
+                  <ul>
+                    <li>8 × 100m <strong>Backstroke</strong> @ race pace, 30s rest</li>
+                    <li>6 × 50m <strong>Backstroke</strong> sprint, 35s rest</li>
+                    <li>200m <strong>Freestyle</strong> recovery</li>
+                    <li>4 × 75m <strong>Backstroke</strong> (negative split), 40s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Breaststroke</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Sprint Power</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 50 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (15 min)</h4>
+                  <ul>
+                    <li>400m <strong>Freestyle</strong> (easy)</li>
+                    <li>8 × 25m build (each stroke)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (30 min)</h4>
+                  <ul>
+                    <li>10 × 25m <strong>Freestyle</strong> all-out sprint, 30s rest</li>
+                    <li>6 × 25m <strong>Butterfly</strong> sprint, 35s rest</li>
+                    <li>6 × 25m <strong>Backstroke</strong> sprint, 30s rest</li>
+                    <li>4 × 50m choice stroke @ max, 60s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Freestyle</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Recovery Session</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 40 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (10 min)</h4>
+                  <ul>
+                    <li>400m <strong>Freestyle</strong> (very easy)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (25 min)</h4>
+                  <ul>
+                    <li>10 × 100m <strong>Freestyle</strong> @ easy-moderate, 40s rest</li>
+                    <li>4 × 50m <strong>Backstroke</strong> (smooth)</li>
+                    <li>4 × 50m <strong>Breaststroke</strong> (smooth)</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m choice stroke (very easy)</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+
+            <div class="training-card-3d">
+              <div class="training-header">
+                <h3>Open Water Prep</h3>
+                <span class="duration"><i class="fas fa-clock"></i> 70 min</span>
+              </div>
+              <div class="training-body">
+                <div class="phase">
+                  <h4><i class="fas fa-fire"></i> Warm-up (15 min)</h4>
+                  <ul>
+                    <li>600m continuous <strong>Freestyle</strong></li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-bolt"></i> Main Set (50 min)</h4>
+                  <ul>
+                    <li>1000m <strong>Freestyle</strong> (continuous, no stops)</li>
+                    <li>3 × 400m <strong>Freestyle</strong> @ race pace, 90s rest</li>
+                    <li>6 × 100m <strong>Freestyle</strong> (sighting practice), 30s rest</li>
+                  </ul>
+                </div>
+                <div class="phase">
+                  <h4><i class="fas fa-wind"></i> Cool-down (5 min)</h4>
+                  <ul>
+                    <li>200m easy <strong>Backstroke</strong></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn-neon">Start Workout</button>
+            </div>
+          </div>
+
+          <div class="technique-videos">
+            <h3>Stroke Technique Videos</h3>
+            <div class="video-grid-3d">
+              <div class="video-card-3d">
+                <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+                <h4>Freestyle Mastery</h4>
+                <p>High elbow catch · Body rotation · Breathing</p>
+              </div>
+              <div class="video-card-3d">
+                <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+                <h4>Breaststroke Technique</h4>
+                <p>Glide · Kick timing · Hand recovery</p>
+              </div>
+              <div class="video-card-3d">
+                <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+                <h4>Backstroke Basics</h4>
+                <p>Arm entry · Hip rotation · Kick rhythm</p>
+              </div>
+              <div class="video-card-3d">
+                <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+                <h4>Butterfly Power</h4>
+                <p>Dolphin kick · Timing · Arm recovery</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- PROGRESS TRACKER PAGE -->
+      <section id="progress" class="section-3d progress-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Track Your <span class="neon-text">Progress</span></h2>
+            <p class="section-subtitle">Visualize your improvement with advanced analytics</p>
+          </div>
+
+          <!-- TIME & DISTANCE LOGGER -->
+          <div class="logger-box">
+            <h3><i class="fas fa-stopwatch"></i> Log Your Swim Session</h3>
+            <form id="sessionForm" class="session-form">
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Date</label>
+                  <input type="date" id="sessionDate" required />
+                </div>
+                <div class="form-field">
+                  <label>Stroke</label>
+                  <select id="sessionStroke" required>
+                    <option value="freestyle">Freestyle</option>
+                    <option value="backstroke">Backstroke</option>
+                    <option value="breaststroke">Breaststroke</option>
+                    <option value="butterfly">Butterfly</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Distance (m)</label>
+                  <input type="number" id="sessionDistance" placeholder="100" min="25" step="25" required />
+                </div>
+                <div class="form-field">
+                  <label>Time (mm:ss)</label>
+                  <input type="text" id="sessionTime" placeholder="01:30" pattern="\d{1,2}:\d{2}" required />
+                </div>
+              </div>
+              <button type="submit" class="btn-neon btn-block"><i class="fas fa-plus-circle"></i> Save Session</button>
+            </form>
+
+            <div class="sessions-table-container">
+              <h4>Recent Sessions</h4>
+              <table class="sessions-table" id="sessionsTable">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Stroke</th>
+                    <th>Distance</th>
+                    <th>Time</th>
+                    <th>Pace (/100m)</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="sessionsBody">
+                  <!-- Sessions will be added here -->
+                </tbody>
+              </table>
+              <button id="clearSessions" class="btn-outline" style="margin-top: 16px;"><i class="fas fa-trash"></i> Clear All</button>
+            </div>
+          </div>
+
+          <div class="progress-dashboard">
+            <div class="stats-row">
+              <div class="stat-card-3d">
+                <div class="stat-icon"><i class="fas fa-swimming-pool"></i></div>
+                <div class="stat-content">
+                  <h4>Total Distance</h4>
+                  <div class="stat-value">127.5 <span>km</span></div>
+                  <div class="stat-change positive"><i class="fas fa-arrow-up"></i> 12% this month</div>
+                </div>
+              </div>
+              <div class="stat-card-3d">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-content">
+                  <h4>Pool Time</h4>
+                  <div class="stat-value">42 <span>hrs</span></div>
+                  <div class="stat-change positive"><i class="fas fa-arrow-up"></i> 8% this month</div>
+                </div>
+              </div>
+              <div class="stat-card-3d">
+                <div class="stat-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="stat-content">
+                  <h4>Avg Pace</h4>
+                  <div class="stat-value">1:32 <span>/100m</span></div>
+                  <div class="stat-change negative"><i class="fas fa-arrow-down"></i> 3% faster</div>
+                </div>
+              </div>
+              <div class="stat-card-3d">
+                <div class="stat-icon"><i class="fas fa-fire"></i></div>
+                <div class="stat-content">
+                  <h4>Streak</h4>
+                  <div class="stat-value">14 <span>days</span></div>
+                  <div class="stat-change positive"><i class="fas fa-check"></i> Personal best</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-container-3d">
+              <h3>Weekly Performance</h3>
+              <canvas id="performanceChart" width="900" height="300"></canvas>
+            </div>
+
+            <div class="achievements-container">
+              <h3>Recent Achievements</h3>
+              <div class="achievements-grid">
+                <div class="achievement-badge unlocked">
+                  <i class="fas fa-trophy"></i>
+                  <span>Century Club</span>
+                  <small>100km milestone</small>
+                </div>
+                <div class="achievement-badge unlocked">
+                  <i class="fas fa-medal"></i>
+                  <span>Speed Demon</span>
+                  <small>Sub 1:30 pace</small>
+                </div>
+                <div class="achievement-badge locked">
+                  <i class="fas fa-star"></i>
+                  <span>Iron Swimmer</span>
+                  <small>30-day streak</small>
+                </div>
+                <div class="achievement-badge locked">
+                  <i class="fas fa-crown"></i>
+                  <span>Elite Status</span>
+                  <small>1000km total</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY PAGE -->
+      <section id="community" class="section-3d community-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Join the <span class="neon-text">Community</span></h2>
+            <p class="section-subtitle">Connect with swimmers worldwide</p>
+          </div>
+
+          <div class="community-grid">
+            <div class="leaderboard-3d">
+              <h3><i class="fas fa-ranking-star"></i> Top Swimmers This Week</h3>
+              <div class="leaderboard-list">
+                <div class="leaderboard-item rank-1">
+                  <span class="rank">#1</span>
+                  <div class="user-info">
+                    <strong>Sarah M.</strong>
+                    <small>45.2 km</small>
+                  </div>
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="leaderboard-item rank-2">
+                  <span class="rank">#2</span>
+                  <div class="user-info">
+                    <strong>John D.</strong>
+                    <small>42.8 km</small>
+                  </div>
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div class="leaderboard-item rank-3">
+                  <span class="rank">#3</span>
+                  <div class="user-info">
+                    <strong>Emma L.</strong>
+                    <small>40.1 km</small>
+                  </div>
+                  <i class="fas fa-award"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="challenges-3d">
+              <h3><i class="fas fa-flag-checkered"></i> Active Challenges</h3>
+              <div class="challenge-card">
+                <h4>November Distance Challenge</h4>
+                <p>Swim 50km this month</p>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 68%;"></div>
+                </div>
+                <span class="progress-label">34 / 50 km</span>
+              </div>
+              <div class="challenge-card">
+                <h4>Butterfly Mastery</h4>
+                <p>Complete 5 butterfly workouts</p>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 40%;"></div>
+                </div>
+                <span class="progress-label">2 / 5 workouts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT PAGE -->
+      <section id="contact" class="section-3d contact-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Get in <span class="neon-text">Touch</span></h2>
+            <p class="section-subtitle">We're here to help you succeed</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-form-3d">
+              <form id="contactForm">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" placeholder="your@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label>Subject</label>
+                  <input type="text" placeholder="How can we help?" required />
+                </div>
+                <div class="form-group">
+                  <label>Message</label>
+                  <textarea rows="5" placeholder="Tell us more..." required></textarea>
+                </div>
+                <button type="submit" class="btn-neon btn-block">Send Message</button>
+              </form>
+            </div>
+
+            <div class="contact-info">
+              <div class="info-card-3d">
+                <i class="fas fa-envelope"></i>
+                <h4>Email Us</h4>
+                <p>aquaatrack@gmail.com</p>
+              </div>
+              <div class="info-card-3d">
+                <i class="fas fa-phone"></i>
+                <h4>Call Us</h4>
+                <p>+20 11 51594469</p>
+              </div>
+              <div class="info-card-3d">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Visit Us</h4>
+                <p>Available Online<br/>Worldwide Support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGIN PAGE -->
+      <section id="login" class="section-3d auth-section">
+        <div class="container">
+          <div class="auth-box-3d">
+            <h2>Welcome Back</h2>
+            <p>Sign in to continue your journey</p>
+            <form id="loginForm">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" required />
+              </div>
+              <button type="submit" class="btn-neon btn-block">Sign In</button>
+              <a href="#signup" class="auth-link">Don't have an account? Sign up</a>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIGNUP PAGE -->
+      <section id="signup" class="section-3d auth-section">
+        <div class="container">
+          <div class="auth-box-3d">
+            <h2>Create Account</h2>
+            <p>Start tracking your swimming performance</p>
+            <form id="signupForm">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" required />
+              </div>
+              <button type="submit" class="btn-neon btn-block">Create Account</button>
+              <a href="#login" class="auth-link">Already have an account? Sign in</a>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-3d">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">
+              <div class="logo-3d"><i class="fas fa-swimmer"></i></div>
+              <span>AquaTrack</span>
+            </div>
+            <p>The ultimate swimming performance platform trusted by athletes worldwide.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#training">Training</a>
+            <a href="#ai-coach">AI Coach</a>
+            <a href="#progress">Progress</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#about">About</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 AquaTrack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
