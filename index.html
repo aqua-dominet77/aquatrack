@@ -254,7 +254,30 @@
             <h2 class="section-title">Training <span class="neon-text">Programs</span></h2>
             <p class="section-subtitle">Structured workouts designed by professional coaches</p>
           </div>
-          <div class="training-grid">
+          
+          <!-- Stroke Selection -->
+          <div class="stroke-selector">
+            <h3>Select Stroke Type</h3>
+            <div class="stroke-tabs">
+              <button class="stroke-tab active" data-stroke-tab="all">All Strokes</button>
+              <button class="stroke-tab" data-stroke-tab="freestyle">Freestyle</button>
+              <button class="stroke-tab" data-stroke-tab="back">Backstroke</button>
+              <button class="stroke-tab" data-stroke-tab="breaststroke">Breaststroke</button>
+              <button class="stroke-tab" data-stroke-tab="butterfly">Butterfly</button>
+            </div>
+          </div>
+          
+          <!-- Level Selection -->
+          <div class="level-selector">
+            <h3>Choose Your Level</h3>
+            <div class="level-buttons">
+              <button class="level-btn active" data-level="beginner">Beginner</button>
+              <button class="level-btn" data-level="semipro">Semi-Pro</button>
+              <button class="level-btn" data-level="professional">Professional</button>
+            </div>
+          </div>
+          
+          <div class="training-grid" id="trainingGrid">
             <!-- Beginner Plans -->
             <div class="training-card-3d">
               <div class="training-header">
@@ -641,28 +664,37 @@
           <div class="technique-videos">
             <h3>Stroke Technique Videos</h3>
             <div class="video-grid-3d">
-              <div class="video-card-3d">
+              <div class="video-card-3d" data-stroke="freestyle">
                 <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
                 <h4>Freestyle Mastery</h4>
                 <p>High elbow catch · Body rotation · Breathing</p>
               </div>
-              <div class="video-card-3d">
+              <div class="video-card-3d" data-stroke="back">
+                <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+                <h4>Backstroke Technique</h4>
+                <p>Arm entry · Hip rotation · Kick rhythm</p>
+              </div>
+              <div class="video-card-3d" data-stroke="breaststroke">
                 <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
                 <h4>Breaststroke Technique</h4>
                 <p>Glide · Kick timing · Hand recovery</p>
               </div>
-              <div class="video-card-3d">
-                <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
-                <h4>Backstroke Basics</h4>
-                <p>Arm entry · Hip rotation · Kick rhythm</p>
-              </div>
-              <div class="video-card-3d">
+              <div class="video-card-3d" data-stroke="butterfly">
                 <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
                 <h4>Butterfly Power</h4>
                 <p>Dolphin kick · Timing · Arm recovery</p>
               </div>
             </div>
           </div>
+          
+          <!-- Video Modal -->
+          <div id="videoModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <iframe id="videoFrame" width="853" height="480" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          
         </div>
       </section>
       <!-- PROGRESS TRACKER PAGE -->
