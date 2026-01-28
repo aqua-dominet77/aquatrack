@@ -792,10 +792,291 @@ class ScrollAnimations {
   }
 }
 
+// ========== TRAINING LEVELS AND VIDEOS ==========
+class TrainingLevels {
+  constructor() {
+    this.levelButtons = document.querySelectorAll('.level-btn');
+    this.trainingCards = document.querySelectorAll('.training-card-3d');
+    this.videoCards = document.querySelectorAll('.video-card-3d');
+    this.videoModal = document.getElementById('videoModal');
+    this.videoFrame = document.getElementById('videoFrame');
+    this.closeModal = document.querySelector('.close');
+    this.currentStroke = 'all'; // Track current stroke filter
+    this.currentLevel = 'all';  // Track current level filter
+    this.init();
+  }
+
+  init() {
+    // Stroke selection tabs (assuming they exist)
+    const strokeTabs = document.querySelectorAll('[data-stroke-tab]');
+    if (strokeTabs.length > 0) {
+      strokeTabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          // Update active tab
+          strokeTabs.forEach(t => t.classList.remove('active'));
+          e.currentTarget.classList.add('active');
+
+          // Filter by stroke
+          const selectedStroke = e.currentTarget.getAttribute('data-stroke-tab');
+          this.currentStroke = selectedStroke;
+          this.applyFilters();
+        });
+      });
+    }
+
+    // Level selection functionality
+    this.levelButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        // Update active button
+        this.levelButtons.forEach(btn => btn.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        // Filter by level
+        const selectedLevel = e.currentTarget.getAttribute('data-level');
+        this.currentLevel = selectedLevel;
+        this.applyFilters();
+      });
+    });
+
+    // Video modal functionality
+    this.videoCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        const stroke = card.getAttribute('data-stroke');
+        this.openVideoModal(stroke);
+      });
+    });
+
+    // Close modal functionality
+    this.closeModal?.addEventListener('click', () => {
+      this.closeVideoModal();
+    });
+
+    // Close modal when clicking outside
+    this.videoModal?.addEventListener('click', (e) => {
+      if (e.target === this.videoModal) {
+        this.closeVideoModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.videoModal.style.display === 'block') {
+        this.closeVideoModal();
+      }
+    });
+
+    // Initial filter application
+    this.applyFilters();
+  }
+
+  filterTrainingPlans(level) {
+    const trainingGrid = document.getElementById('trainingGrid');
+    
+    // Clear existing training plans
+    while (trainingGrid.firstChild) {
+      if (trainingGrid.firstChild.classList && trainingGrid.firstChild.classList.contains('training-card-3d')) {
+        trainingGrid.removeChild(trainingGrid.firstChild);
+      } else {
+        break; // Stop when we reach non-training-card elements
+      }
+    }
+    
+    // Generate 30 training plans for the selected level
+    for (let i = 0; i < 30; i++) {
+      const plan = this.generateTrainingPlan(level, i + 1);
+      trainingGrid.insertAdjacentHTML('beforeend', plan);
+    }
+  }
+  
+  // Apply filters to both videos and training plans
+  applyFilters() {
+    // Filter videos by stroke
+    this.videoCards.forEach(video => {
+      const videoStroke = video.getAttribute('data-stroke');
+      
+      // Check if video matches current stroke filter
+      const strokeMatch = this.currentStroke === 'all' || videoStroke === this.currentStroke;
+      
+      // Check if video matches current level filter
+      const levelMatch = this.currentLevel === 'all' || video.hasAttribute('data-level') && video.getAttribute('data-level') === this.currentLevel;
+      
+      if (strokeMatch && levelMatch) {
+        video.classList.remove('hide');
+        video.classList.add('show');
+      } else {
+        video.classList.remove('show');
+        video.classList.add('hide');
+      }
+    });
+    
+    // Filter training plans by level (and potentially stroke if needed)
+    this.trainingCards.forEach(plan => {
+      const planLevel = plan.getAttribute('data-level') || 'all';
+      
+      // Check if plan matches current level filter
+      const levelMatch = this.currentLevel === 'all' || planLevel === this.currentLevel;
+      
+      if (levelMatch) {
+        plan.classList.remove('hide');
+        plan.classList.add('show');
+      } else {
+        plan.classList.remove('show');
+        plan.classList.add('hide');
+      }
+    });
+    
+    // If we're filtering by level, regenerate training plans
+    if (this.currentLevel !== 'all') {
+      this.filterTrainingPlans(this.currentLevel);
+    }
+  }
+  
+  generateTrainingPlan(level, planNumber) {
+    // Define different training plans based on level
+    const warmupSets = {
+      beginner: [
+        '200m easy Freestyle',
+        '4 × 25m Freestyle (breathing drills)',
+        '100m easy Backstroke',
+        '100m easy Breaststroke'
+      ],
+      semipro: [
+        '400m continuous Freestyle',
+        '8 × 25m drills (catch-up, fingertip)',
+        '200m technique focus',
+        '4 × 50m build speed'
+      ],
+      professional: [
+        '600m continuous Freestyle',
+        '12 × 50m technique drills (various strokes)',
+        '8 × 50m build to race pace',
+        '200m IM order'
+      ]
+    };
+    
+    const mainSets = {
+      beginner: [
+        '8 × 50m Freestyle @ moderate, 45s rest',
+        '4 × 25m Backstroke (easy pace)',
+        '6 × 50m Mixed strokes, 30s rest',
+        '4 × 25m Choice stroke, 40s rest'
+      ],
+      semipro: [
+        '10 × 100m Freestyle @ steady, 25s rest',
+        '200m Backstroke (moderate)',
+        '4 × 50m Breaststroke, 30s rest',
+        '8 × 50m Choice stroke @ 85% effort, 30s rest'
+      ],
+      professional: [
+        '5 × 200m Freestyle @ threshold, 40s rest',
+        '10 × 100m IM order, 30s rest',
+        '400m Backstroke (negative split)',
+        '8 × 50m Butterfly sprint, 45s rest'
+      ]
+    };
+    
+    const cooldownSets = {
+      beginner: [
+        '200m easy Freestyle',
+        '100m easy choice stroke',
+        '150m easy mixed strokes'
+      ],
+      semipro: [
+        '200m easy mixed strokes',
+        '200m easy choice stroke',
+        '300m easy mixed strokes'
+      ],
+      professional: [
+        '200m easy Breaststroke',
+        '200m easy Freestyle',
+        '400m easy mixed strokes'
+      ]
+    };
+    
+    // Select random exercises from each category
+    const warmup = this.getRandomExercise(warmupSets[level]);
+    const mainSet = this.getRandomExercise(mainSets[level]);
+    const cooldown = this.getRandomExercise(cooldownSets[level]);
+    
+    // Determine duration based on level
+    let duration = '30 min';
+    if (level === 'semipro') duration = '45 min';
+    if (level === 'professional') duration = '60 min';
+    
+    // Generate the training plan HTML
+    return `
+      <div class="training-card-3d">
+        <div class="training-header">
+          <h3>${level.charAt(0).toUpperCase() + level.slice(1)} Training Plan #${planNumber}</h3>
+          <span class="duration"><i class="fas fa-clock"></i> ${duration}</span>
+        </div>
+        <div class="training-body">
+          <div class="phase">
+            <h4><i class="fas fa-fire"></i> Warm-up (${Math.floor(parseInt(duration.split(' ')[0]) * 0.25)} min)</h4>
+            <ul>
+              <li>${warmup}</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <h4><i class="fas fa-bolt"></i> Main Set (${Math.floor(parseInt(duration.split(' ')[0]) * 0.6)} min)</h4>
+            <ul>
+              <li>${mainSet}</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <h4><i class="fas fa-wind"></i> Cool-down (${Math.floor(parseInt(duration.split(' ')[0]) * 0.15)} min)</h4>
+            <ul>
+              <li>${cooldown}</li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn-neon">Start Workout</button>
+      </div>
+    `;
+  }
+  
+  getRandomExercise(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  openVideoModal(stroke) {
+    let videoUrl = '';
+    switch(stroke) {
+      case 'freestyle':
+        videoUrl = 'https://www.youtube.com/embed/AQy_c30lNjI?si=umw3-imKZPaD376_';
+        break;
+      case 'back':
+        videoUrl = 'https://www.youtube.com/embed/MrFt6JHii8w?si=Nv6zeVitYoz0lmAJ';
+        break;
+      case 'breaststroke':
+        videoUrl = 'https://www.youtube.com/embed/EElzlIMjk_c?si=75lbn_vWCb6W-THJ';
+        break;
+      case 'butterfly':
+        videoUrl = 'https://www.youtube.com/embed/x-CB6aD4S2s?si=_YoDDmxw8V8LMPC2';
+        break;
+      default:
+        videoUrl = '';
+    }
+
+    if (videoUrl) {
+      this.videoFrame.src = videoUrl;
+      this.videoModal.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+  }
+
+  closeVideoModal() {
+    this.videoModal.style.display = 'none';
+    this.videoFrame.src = ''; // Stop video when closing
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  }
+}
+
 // ========== INITIALIZE APP ==========
 let sessionLogger;
 let navigation;
 let auth;
+let trainingLevels;
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c🏊 AquaTrack Pro Initialized', 'color: #00d4ff; font-size: 16px; font-weight: bold;');
@@ -809,6 +1090,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new Forms(auth);
   new ScrollAnimations();
   sessionLogger = new SessionLogger();
+  trainingLevels = new TrainingLevels();
 
   // Get started button - go to signup
   const getStartedBtn = document.getElementById('get-started');
@@ -846,12 +1128,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Video cards
-  document.querySelectorAll('.video-card-3d').forEach(card => {
-    card.addEventListener('click', () => {
-      alert('Video player will open here. Full library available in premium version.');
-    });
-  });
+  // Video cards - Remove duplicate event listener since handled in TrainingLevels class
+  // The video card click functionality is handled in the TrainingLevels class
 
   // Quick navigation cards on home page
   document.querySelectorAll('.quick-nav-card').forEach(card => {

@@ -598,6 +598,166 @@ main > section.active {
   color: var(--neon-blue);
 }
 
+/* ========== STROKE SELECTOR ========== */
+.stroke-selector {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.stroke-selector h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--deep-blue);
+}
+
+.stroke-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stroke-tab {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.stroke-tab:hover {
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  transform: translateY(-2px);
+}
+
+.stroke-tab.active {
+  background: var(--neon-blue);
+  border-color: var(--neon-blue);
+  color: white;
+  box-shadow: var(--glow-neon);
+}
+
+/* ========== LEVEL SELECTOR ========== */
+.level-selector {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.level-selector h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--deep-blue);
+}
+
+.level-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.level-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 30px;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-btn:hover {
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+}
+
+.level-btn.active {
+  background: linear-gradient(135deg, var(--neon-blue), var(--electric-blue));
+  border-color: var(--neon-blue);
+  color: white;
+  box-shadow: var(--glow-neon);
+}
+
+/* ========== VIDEO MODAL ========== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 26, 51, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+/* Filtering classes */
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.video-card-3d.hide,
+.training-card-3d.hide {
+  display: none !important;
+}
+
+.video-card-3d.show,
+.training-card-3d.show {
+  display: block !important;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--card-bg);
+  margin: 5% auto;
+  padding: 0;
+  border: 2px solid var(--neon-blue);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: var(--glow-intense);
+  overflow: hidden;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: var(--neon-blue);
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  background: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: white;
+  background: var(--neon-blue);
+  transform: scale(1.1);
+}
+
 /* ========== TRAINING PROGRAMS ========== */
 .training-grid {
   display: grid;
